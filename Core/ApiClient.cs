@@ -3,10 +3,10 @@ using System.Threading.Tasks;
 using log4net;
 using log4net.Core;
 using RestSharp;
-using static nunit_restsharp_demo_project.Core.Logger;
+using static nunit_restsharp_demo_project.Core.Logger.Logger;
 
 
-//[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config")]
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config")]
 namespace nunit_restsharp_demo_project.Core
 {
     
@@ -29,7 +29,11 @@ namespace nunit_restsharp_demo_project.Core
                 }
                 if (testResponse.IsSuccessful)
                 {
-                    Console.WriteLine("Success!!!!");
+                    printResponse(testResponse);
+                }
+                else 
+                {
+                    printResponse(testResponse);
                 }
                 taskCompletionSource.SetResult(testResponse);
             });
@@ -48,7 +52,11 @@ namespace nunit_restsharp_demo_project.Core
                 }
                 if (testResponse.IsSuccessful)
                 {
-                    Console.WriteLine("Sucesss!!!!");
+                    printResponse(testResponse);
+                }
+                else 
+                {
+                    printResponse(testResponse);
                 }
                 taskCompletionSource.SetResult(testResponse);
             });
@@ -68,6 +76,10 @@ namespace nunit_restsharp_demo_project.Core
             {
                 printResponse(resp);
             }
+            else
+            {
+                printResponse(resp);
+            }
             return resp;
             
         }
@@ -76,7 +88,7 @@ namespace nunit_restsharp_demo_project.Core
         public IRestResponse ExecuteRequest(RestClient client, IRestRequest request)
         {
             printRequest(client, request);
-            var taskCompletionSource = new TaskCompletionSource<IRestResponse>();
+
             var resp = client.Execute(request);
             if (resp.ErrorException != null)
             {
@@ -86,9 +98,12 @@ namespace nunit_restsharp_demo_project.Core
             if (resp.IsSuccessful)
             {
                 printResponse(resp);
-
             }
-            taskCompletionSource.SetResult(resp);
+            else
+            {
+                printResponse(resp);
+            }
+
             return resp;
         }
 

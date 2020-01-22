@@ -3,7 +3,7 @@ using System.Reflection;
 using log4net;
 using log4net.Config;
 
-namespace nunit_restsharp_demo_project.Core
+namespace nunit_restsharp_demo_project.Core.Logger
 {
     public class Logger
     {

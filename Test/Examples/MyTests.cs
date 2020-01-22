@@ -1,7 +1,7 @@
 using System.Threading;
 using log4net;
 using NUnit.Framework;
-using static nunit_restsharp_demo_project.Core.Logger;
+using static nunit_restsharp_demo_project.Core.Logger.Logger;
 
 namespace nunit_restsharp_demo_project.Test.Examples
 {

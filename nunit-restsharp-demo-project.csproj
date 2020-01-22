@@ -22,11 +22,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="allureConfig.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
       <None Update="log4net.config">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="allureConfig.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
     </ItemGroup>
 

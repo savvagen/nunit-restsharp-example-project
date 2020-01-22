@@ -55,7 +55,7 @@ namespace nunit_restsharp_demo_project.Test.NewTests
             var resp = UserService.GetUsers<List<User>>()
                 .ShouldHave(StatusCode(200))
                 .ShouldHave(ContentType("application/json; charset=utf-8")).Response;
-            resp.Data.Count.Should().BeGreaterThan(100);
+            resp.Data.Count.Should().BeGreaterOrEqualTo(100);
             resp.Data[0].id.Should().Be(1);
 
         }
